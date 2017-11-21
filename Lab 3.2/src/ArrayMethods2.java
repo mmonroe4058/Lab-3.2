@@ -2,27 +2,41 @@
  * Miriam Monroe and Ramisha Sarwar
  * Lab 3.2
  */
+import java.util.Arrays;
 public class ArrayMethods2
 {
 	public static void main (String[] args)
 	{
-		/*String [] stuff1 = {"orange","banana", "paper"};
-		String [] stuff2 = {"apple", "rock"};*/
+		String [] stuff = {"D","B", "A","C", "E", "G"};
 		String [] stuff1 = {"A", "C", "E", "G"};
-		String [] stuff2 = {"B", "D", "F", "H"};
+		String [] stuff2 = {"B", "D", "H", "F"};
 		
 		printArr(merge(stuff1, stuff2));
+		System.out.println();
+		printArr(mergeSort(stuff));
 	}
 	public static String[] merge(String[] list1, String[] list2)
 	{
+		/*
 		String[] merged = new String[list1.length + list2.length];
 		int index = 0;
+
 		for(int i = 0; i < list1.length && i<list2.length; i++)
 		{
 				merged[index] = list1[i];
 				merged[index+1]= list2[i];
 				index += 2;
 		}
+		*/
+		
+		String[] merged = new String[list1.length + list2.length];
+		int i = 0;
+		int j = 0;
+		int x = 0;		
+		while()
+		
+		
+		
 				if(list1.length > list2.length)
 				{
 					for(int i = list2.length; i <list1.length; i++)
@@ -53,14 +67,17 @@ public class ArrayMethods2
 			
 		}*/
 		int index = list.length/2;
-		if(list.length <= 1)
+		if(list.length == 1)
 		{
 			return list;
 		}
-		else 
+		else
 		{
-			return merge(mergeSort(list), mergeSort())
-					//copyOf
+			System.out.print(index + " ");
+			return merge(mergeSort(Arrays.copyOfRange(list, 0, index)), mergeSort(Arrays.copyOfRange(list, index, list.length)));
+			
+			//mergeSort(merge());
+					//Arrays.copyOfRange()
 		}
 	}
 	public static void printArr(String[] arr)
