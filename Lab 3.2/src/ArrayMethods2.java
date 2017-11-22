@@ -7,9 +7,9 @@ public class ArrayMethods2
 {
 	public static void main (String[] args)
 	{
-		String [] stuff = {"D","B", "A","C", "E", "G"};
+		String [] stuff = {"D","B", "A","C", "E", "G", "Z", "A", "Y"};
 		String [] stuff1 = {"A", "C", "E", "G"};
-		String [] stuff2 = {"B", "D", "H", "F"};
+		String [] stuff2 = {"B", "D", "F", "H"};
 		
 		printArr(merge(stuff1, stuff2));
 		System.out.println();
@@ -17,55 +17,60 @@ public class ArrayMethods2
 	}
 	public static String[] merge(String[] list1, String[] list2)
 	{
-		/*
+		
 		String[] merged = new String[list1.length + list2.length];
 		int index = 0;
-
-		for(int i = 0; i < list1.length && i<list2.length; i++)
-		{
-				merged[index] = list1[i];
-				merged[index+1]= list2[i];
-				index += 2;
-		}
-		*/
-		
-		String[] merged = new String[list1.length + list2.length];
 		int i = 0;
 		int j = 0;
-		int x = 0;		
-		while()
-		
-		
-		
-				if(list1.length > list2.length)
+	
+		while(i < list1.length && j<list2.length)
+		{
+			//System.out.println(i + " " + j);
+				if(list1[i].compareTo(list2[j]) <= 0)
 				{
-					for(int i = list2.length; i <list1.length; i++)
-					{
-						merged[index] = list1[i];
-					}
+					merged[index] = list1[i];
+					index++;
+					i++;
 				}
-				else 
+				else if(list1[i].compareTo(list2[j]) > 0)
 				{
-					for(int i = list1.length; i < list2.length; i++)
-					{
-						merged[index] = list2[i];
-					}
+					merged[index] = list2[j];
+					index++;
+					j++;
 				}
+
+		}
+		
+		
+		if(i < list1.length)
+		{
+			
+			while(i < list1.length)
+			{
+				merged[index] = list1[i];
+				index++;
+				i++;
+			}
+		}
+		
+		if(j < list2.length)
+		{
+			while(j < list2.length)
+			{
+				merged[index] = list2[j];
+				index++;
+				j++;
+			}
+		}
+		
+		
+				
+				
 		return merged;
 	}
 	
 	public static String[] mergeSort(String[] list)
 	{
-		/*if(list1[i].compareTo(list2[j]) < 0)
-		{
-			String temp = list2[j];
-			list2[j] = list1[i];
-			list1[i] = temp;
-		}
-		else if(list1[i].compareTo(list2[j])> 0)
-		{
-			
-		}*/
 		int index = list.length/2;
 		if(list.length == 1)
 		{
@@ -73,13 +78,25 @@ public class ArrayMethods2
 		}
 		else
 		{
-			System.out.print(index + " ");
+			//System.out.print(index + " ");
 			return merge(mergeSort(Arrays.copyOfRange(list, 0, index)), mergeSort(Arrays.copyOfRange(list, index, list.length)));
-			
-			//mergeSort(merge());
-					//Arrays.copyOfRange()
 		}
 	}
+	
+	public static int partition(int[] list)
+	{
+		int pivot = list[0];
+		int front = 0;
+		int back = list[list.length-1];
+		int pPivot = 0;
+		
+		for()
+		{
+			
+		}
+		return pPivot;
+	}
+	
 	public static void printArr(String[] arr)
 	{
 		for(int i = 0; i<arr.length; i++)
