@@ -90,9 +90,12 @@ public class ArrayMethods2
 		int back = list[list.length-1];
 		int pPivot = 0;
 		
-		for()
+		for(int i = back; i< list.length;i--)
 		{
-			
+			if(list[i] < pivot)
+			{
+				
+			}
 		}
 		return pPivot;
 	}
