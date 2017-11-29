@@ -10,10 +10,14 @@ public class ArrayMethods2
 		String [] stuff = {"D","B", "A","C", "E", "G", "Z", "A", "Y"};
 		String [] stuff1 = {"A", "C", "E", "G"};
 		String [] stuff2 = {"B", "D", "F", "H"};
+		int [] stuff3 = {3, 2, 7, 4, 5};
 		
 		printArr(merge(stuff1, stuff2));
 		System.out.println();
 		printArr(mergeSort(stuff));
+		System.out.println();
+		System.out.println(partition(stuff3));
+		
 	}
 	public static String[] merge(String[] list1, String[] list2)
 	{
@@ -87,17 +91,33 @@ public class ArrayMethods2
 	{
 		int pivot = list[0];
 		int front = 0;
-		int back = list[list.length-1];
+		int back = front;
 		int pPivot = 0;
 		
-		for(int i = back; i< list.length;i--)
+		while(front < list.length)
 		{
-			if(list[i] < pivot)
+			while(list[front]<=pivot && front<pivot)
 			{
+				front++;
 				
+				while(list[back] > pivot && front < list.length)
+				{
+					back++;
+				}
+				swap(list, front, back);
+				pPivot = front;
 			}
+			
+			swap(list, pPivot, 0);
 		}
 		return pPivot;
+	}
+
+	public static void swap(int[] arr, int i, int j)
+	{
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
 	}
 	
 	public static void printArr(String[] arr)
