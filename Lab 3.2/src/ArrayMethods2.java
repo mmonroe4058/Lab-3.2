@@ -95,7 +95,7 @@ public class ArrayMethods2
 		int pPivot = 0;
 		
 		while(front < list.length)
-		{
+		{ 
 			while(list[front]<=pivot && front<pivot)
 			{
 				front++;
