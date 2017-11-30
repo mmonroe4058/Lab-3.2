@@ -12,10 +12,10 @@ public class ArrayMethods2
 		String [] stuff2 = {"B", "D", "F", "H"};
 		int [] stuff3 = {3, 2, 7, 4, 5};
 		
-		printArr(merge(stuff1, stuff2));
-		System.out.println();
-		printArr(mergeSort(stuff));
-		System.out.println();
+		//printArr(merge(stuff1, stuff2));
+		//System.out.println();
+		//printArr(mergeSort(stuff));
+		//System.out.println();
 		System.out.println(partition(stuff3));
 		
 	}
@@ -91,25 +91,31 @@ public class ArrayMethods2
 	{
 		int pivot = list[0];
 		int front = 0;
-		int back = front;
+		int back = 0;
 		int pPivot = 0;
-		
-		while(front < list.length)
-		{ 
-			while(list[front]<=pivot && front<pivot)
+	
+		//while(back < list.length)
+		{
+			while(list[front]<=pivot && front < list.length-1)
 			{
 				front++;
+				//System.out.println(front);
 				
-				while(list[back] > pivot && front < list.length)
-				{
-					back++;
-				}
+			}
+			
+			while(list[back] > pivot && back < list.length)
+			{
+				back++;
+				//System.out.println(back);
+			}
+			if(back < list.length)
+			{
 				swap(list, front, back);
 				pPivot = front;
 			}
-			
-			swap(list, pPivot, 0);
 		}
+		swap(list, pPivot, 0);
+		printArr(list);
 		return pPivot;
 	}
 
@@ -120,7 +126,7 @@ public class ArrayMethods2
 		arr[j] = temp;
 	}
 	
-	public static void printArr(String[] arr)
+	public static void printArr(int[] arr)
 	{
 		for(int i = 0; i<arr.length; i++)
 		{
